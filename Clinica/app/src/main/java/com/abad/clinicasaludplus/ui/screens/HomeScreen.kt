@@ -119,7 +119,7 @@ private fun HeaderGreetingCard() {
             modifier = Modifier.padding(20.dp)
         ) {
             Text(
-                text = "¡Hola, bienvenido/a! 👋",
+                text = "Hola, Luis 👋",
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onPrimaryContainer
