@@ -1,5 +1,7 @@
 package com.abad.tecsupfit.navigation
 
+import android.net.Uri
+
 sealed class Screen(val route: String) {
 
     object Home : Screen("home")
@@ -18,7 +20,7 @@ sealed class Screen(val route: String) {
 
     object Confirmacion : Screen("confirmacion/{claseId}/{horario}") {
         fun createRoute(claseId: Int, horario: String): String {
-            return "confirmacion/$claseId/$horario"
+            return "confirmacion/$claseId/${Uri.encode(horario)}"
         }
     }
 }
