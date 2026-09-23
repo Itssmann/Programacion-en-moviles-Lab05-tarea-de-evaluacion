@@ -1,5 +1,7 @@
 package com.abad.tecsupfit.screens
 
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.IconButton
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -72,11 +74,26 @@ fun DetalleClaseScreen(
             .padding(20.dp)
     ) {
 
-        Text(
-            text = "Detalle de clase",
-            fontSize = 28.sp,
-            fontWeight = FontWeight.Bold
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            IconButton(
+                onClick = {
+                    navController.popBackStack()
+                }
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Volver"
+                )
+            }
+
+            Text(
+                text = "Detalle de clase",
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
 
         // Tarjeta destacada de información de la clase
         Card(

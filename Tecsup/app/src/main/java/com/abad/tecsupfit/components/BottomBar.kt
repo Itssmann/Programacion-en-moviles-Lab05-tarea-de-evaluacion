@@ -36,37 +36,35 @@ fun BottomBar(navController: NavController) {
         tonalElevation = 8.dp
     ) {
         items.forEach { (screen, title, icon) ->
+
             val isSelected = currentRoute == screen.route
 
             NavigationBarItem(
                 selected = isSelected,
-
                 onClick = {
-                    if (currentRoute != screen.route) {
+                    if (!isSelected) {
                         navController.navigate(screen.route) {
                             popUpTo(Screen.Home.route) {
-                                saveState = true
+                                inclusive = screen == Screen.Home
                             }
                             launchSingleTop = true
-                            restoreState = true
                         }
                     }
                 },
-
                 icon = {
                     Icon(
                         imageVector = icon,
                         contentDescription = title
                     )
                 },
-
                 label = {
                     Text(
                         text = title,
-                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                        fontWeight =
+                            if (isSelected) FontWeight.Bold
+                            else FontWeight.Normal
                     )
                 },
-
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = MaterialTheme.colorScheme.primary,
                     selectedTextColor = MaterialTheme.colorScheme.primary,
